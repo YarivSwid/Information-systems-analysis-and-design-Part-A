@@ -1,2 +1,1 @@
-# Nitoz Project
- 
+# Information-systems-analysis-and-design part B
