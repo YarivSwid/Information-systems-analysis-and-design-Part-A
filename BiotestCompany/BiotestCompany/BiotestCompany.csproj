@@ -51,6 +51,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BiotestDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BiotestDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BiotestDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Chat.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="District.cs" />
@@ -86,6 +91,17 @@
     </None>
     <None Include="BiotestDataSet.xss">
       <DependentUpon>BiotestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BiotestDataSet1.xsc">
+      <DependentUpon>BiotestDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BiotestDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BiotestDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BiotestDataSet1.xss">
+      <DependentUpon>BiotestDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

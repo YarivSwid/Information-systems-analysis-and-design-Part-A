@@ -13,10 +13,11 @@ namespace BiotestCompany
     class SQL_CON
     {
         SqlConnection conn;
+        private int Gilad;
 
         public SQL_CON()
         {
-            conn = new SqlConnection("Data Source=IEMDBS;Initial Catalog=SAD_1;Integrated Security=True");//update this!!
+            conn = new SqlConnection("Data Source=DESKTOP-H55GGF4\SQLEXPRESS;Initial Catalog=Biotest;Integrated Security=True");//update this!!
         }
 
         public void execute_non_query(SqlCommand cmd)

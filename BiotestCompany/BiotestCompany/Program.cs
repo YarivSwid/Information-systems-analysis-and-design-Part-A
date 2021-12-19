@@ -47,7 +47,7 @@ namespace BiotestCompany
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new User(234234, "2342342", DateTime.Now, "yuval", "haefes", DateTime.Now, 5234712, "homomomo", "homo", "sdasdas");
+            new User(12, "2342342", DateTime.Now, "yuval", "haefes", DateTime.Now, 5712, "homomomo", "homo", "sdasdas");
             Application.Run(new Form1());
         }
         public static void initLists()//מילוי הרשימות מתוך בסיס הנתונים
