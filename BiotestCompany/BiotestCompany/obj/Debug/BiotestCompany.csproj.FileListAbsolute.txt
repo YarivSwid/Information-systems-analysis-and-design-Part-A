@@ -1,0 +1,10 @@
+C:\Users\97252\Desktop\Nitoz-Project\BiotestCompany\BiotestCompany\bin\Debug\BiotestCompany.exe.config
+C:\Users\97252\Desktop\Nitoz-Project\BiotestCompany\BiotestCompany\bin\Debug\BiotestCompany.exe
+C:\Users\97252\Desktop\Nitoz-Project\BiotestCompany\BiotestCompany\bin\Debug\BiotestCompany.pdb
+C:\Users\97252\Desktop\Nitoz-Project\BiotestCompany\BiotestCompany\obj\Debug\BiotestCompany.csproj.AssemblyReference.cache
+C:\Users\97252\Desktop\Nitoz-Project\BiotestCompany\BiotestCompany\obj\Debug\BiotestCompany.csproj.SuggestedBindingRedirects.cache
+C:\Users\97252\Desktop\Nitoz-Project\BiotestCompany\BiotestCompany\obj\Debug\BiotestCompany.Properties.Resources.resources
+C:\Users\97252\Desktop\Nitoz-Project\BiotestCompany\BiotestCompany\obj\Debug\BiotestCompany.csproj.GenerateResource.cache
+C:\Users\97252\Desktop\Nitoz-Project\BiotestCompany\BiotestCompany\obj\Debug\BiotestCompany.csproj.CoreCompileInputs.cache
+C:\Users\97252\Desktop\Nitoz-Project\BiotestCompany\BiotestCompany\obj\Debug\BiotestCompany.exe
+C:\Users\97252\Desktop\Nitoz-Project\BiotestCompany\BiotestCompany\obj\Debug\BiotestCompany.pdb
