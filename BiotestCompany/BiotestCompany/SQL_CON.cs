@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,11 +11,12 @@ namespace BiotestCompany
     class SQL_CON
     {
         SqlConnection conn;
-        private int Gilad;
 
         public SQL_CON()
         {
-            conn = new SqlConnection("Data Source=DESKTOP-H55GGF4\SQLEXPRESS;Initial Catalog=Biotest;Integrated Security=True");//update this!!
+
+            conn = new SqlConnection("Data Source = IEMDBS; Initial Catalog = SAD_1; Integrated Security = True");//update this!!
+
         }
 
         public void execute_non_query(SqlCommand cmd)
@@ -25,15 +24,19 @@ namespace BiotestCompany
 
             try
             {
+
                 // open a connection object
                 this.conn.Open();
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
+                Console.WriteLine("YOU PASSSSSSSSSSEd");
+
+
                 MessageBox.Show(" השאילתה בוצעה בהצלחה", "המשך", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("שגיאה בביצוע השאילתה", "המשך", MessageBoxButtons.OK);
+                MessageBox.Show(ex.Message + "שגיאה בביצוע השאילתה", "המשך", MessageBoxButtons.OK);
             }
             finally
             {
@@ -45,22 +48,25 @@ namespace BiotestCompany
         }
         public SqlDataReader execute_query(SqlCommand cmd)
         {
+
             try
             {
                 // open a connection object
                 conn.Open();
                 cmd.Connection = conn;
                 SqlDataReader READER = cmd.ExecuteReader();
+
                 return READER;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("שגיאה בביצוע השאילתה", "המשך", MessageBoxButtons.OK);
+                MessageBox.Show("שגיאה  השאילתה", "המשך", MessageBoxButtons.OK);
                 return null;
             }
 
 
         }
+
 
     }
 

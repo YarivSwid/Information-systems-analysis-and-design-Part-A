@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using BiotestCompany;
 
 namespace BiotestCompany
 {
@@ -17,7 +16,7 @@ namespace BiotestCompany
         ///  //רשימות
         public static System.Collections.Generic.List<Customer> Customers;
         public static System.Collections.Generic.List<User> Users;
-        // public static System.Collections.Generic.List<Chat> Chats;
+        public static System.Collections.Generic.List<Chat> Chats;
         public static System.Collections.Generic.List<Message> Messages;
         //public static System.Collections.Generic.List<CustomerBid> CustomerBid;
         //public static System.Collections.Generic.List<CustomerOrder> CustomerOrder;
@@ -29,33 +28,27 @@ namespace BiotestCompany
         //public static System.Collections.Generic.List<Product> Product;
         //public static System.Collections.Generic.List<ProductType> ProductType;
 
-
         // add the rest of lists
 
         [STAThread]
         //שיטה שמחפשת עובד ברשימה לפי תעודת זהות
         //public static Worker seekWorker(string id)
         //{
-          //  foreach (Worker w in Workers)
-            //{
-              //  if (w.getID() == id)
-                //    return w;
-            //}
-            //return null;
+        //  foreach (Worker w in Workers)
+        //{
+        //  if (w.getID() == id)
+        //    return w;
         //}
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            new User(12, "2342342", DateTime.Now, "yuval", "haefes", DateTime.Now, 5712, "homomomo", "homo", "sdasdas");
-            Application.Run(new Form1());
-        }
+        //return null;
+        //}
+
+
         public static void initLists()//מילוי הרשימות מתוך בסיס הנתונים
         {
-            init_customers();
-            init_users();
-            init_chats();
-            init_messages();
+            //init_customers();
+            //init_users();
+            //init_chats();
+            //init_messages();
             //init_customerbid();
             //init_customerorder();
             //init_supplier();
@@ -119,13 +112,15 @@ namespace BiotestCompany
         public static void init_supplier()
         {
         }
-        //static void Main()
-        //{
-        //    Application.EnableVisualStyles();
-        //    Application.SetCompatibleTextRenderingDefault(false);
-        //    initLists();//אתחול כל הרשימות
-        //    Application.Run(new main_form());
-        //}
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            new Test(1404);
+            //new User(234234, "2342342", DateTime.Now, "yuval", "haefes", DateTime.Now, 5234712, "homomomo", "homo", "sdasdas");
+            initLists();//אתחול כל הרשימות
+                        // Application.Run(new main_form());
+        }
     }
 
 }
