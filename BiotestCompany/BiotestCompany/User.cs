@@ -29,7 +29,7 @@ namespace BiotestCompany
         private string role; //CHANGE BACK TO Role type
         private string profilePicture;
 
-        public User(int userID, DateTime joinDate, string firstName, string lastName, DateTime birthday, int serialID, string email, string role, string profilePicture) //CHANGE BACK TO Role type
+        public User(int userID, DateTime joinDate, string firstName, string lastName, DateTime birthday, int serialID, string email, string role, string profilePicture, Boolean isNew) //CHANGE BACK TO Role type
         { // create from GUI (no password in input)
             this.userID = userID;
             this.password = setAutomaticPassword(); // create the method
@@ -41,8 +41,14 @@ namespace BiotestCompany
             this.email = email;
             this.role = role;
             this.profilePicture = profilePicture;
+            if (isNew)
+            {
+                createUser();
+                Program.Users.Add(this);
+            }
+
         }
-        public User(int userID, string password, DateTime joinDate, string firstName, string lastName, DateTime birthday, int serialID, string email, string role, string profilePicture) //CHANGE BACK TO Role type
+        public User(int userID, string password, DateTime joinDate, string firstName, string lastName, DateTime birthday, int serialID, string email, string role, string profilePicture, Boolean isNew) //CHANGE BACK TO Role type
         { // create from SQL
             this.userID = userID;
             this.password = password;
@@ -54,8 +60,13 @@ namespace BiotestCompany
             this.email = email;
             this.role = role;
             this.profilePicture = profilePicture;
-            createUser(); 
-            //Program.Users.Add(this);
+            if (isNew)
+            {
+                createUser();
+                Program.Users.Add(this);
+            }
+
+
         }
         public string setAutomaticPassword()
         {
@@ -134,8 +145,7 @@ namespace BiotestCompany
         public void createUser()
         {
             SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.AddUser @ID int, @password varchar(20), @joinDate DateTime,@firstName varchar(20)," +
-                            "@lastName varchar(20), @birthday date, @serialID int,@email varchar(40), @role varchar(50), @profilePicture varchar(500)";
+            c.CommandText = "EXECUTE dbo.AddUser @ID, @password, @joinDate ,@firstName, @lastName, @birthday, @serialID ,@email, @role, @profilePicture";
             c.Parameters.AddWithValue("@id", this.userID);
             c.Parameters.AddWithValue("@password", this.password);
             c.Parameters.AddWithValue("@joinDate", this.joinDate);

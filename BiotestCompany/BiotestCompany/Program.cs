@@ -62,22 +62,23 @@ namespace BiotestCompany
         }
         public static void init_customers()
         {
-            //SqlCommand c = new SqlCommand();
-            //c.CommandText = "EXECUTE dbo.Get_all_Workers";
-            //SQL_CON SC = new SQL_CON();
-            //SqlDataReader rdr = SC.execute_query(c);
 
-            //Workers = new List<Worker>();
-
-            //while (rdr.Read())
-            //{
-            //    Title T = (Title)Enum.Parse(typeof(Title), rdr.GetValue(2).ToString());
-            //    Worker w = new Worker(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), T, false);
-            //    Workers.Add(w);
-            //}
         }
         public static void init_users()
         {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.GetAllUsers";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(c);
+
+            Users = new List<User>();
+
+            while (rdr.Read())
+            {
+                //Role T = (Role)Enum.Parse(typeof(Role), rdr.GetValue(8).ToString());
+                User U = new User(int.Parse(rdr.GetValue(0).ToString()), rdr.GetValue(1).ToString(), DateTime.Parse(rdr.GetValue(2).ToString()), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), DateTime.Parse(rdr.GetValue(5).ToString()), int.Parse(rdr.GetValue(6).ToString()), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), false); //CHANGE Role TO Role type
+                Users.Add(U);
+            }
         }
         public static void init_chats()
         {
@@ -116,10 +117,13 @@ namespace BiotestCompany
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new Test(1404);
-            //new User(234234, "2342342", DateTime.Now, "yuval", "haefes", DateTime.Now, 5234712, "homomomo", "homo", "sdasdas");
-            initLists();//אתחול כל הרשימות
-                        // Application.Run(new main_form());
+            //    new User(12, "2342342", DateTime.Now, "yuval", "haefes", DateTime.Now, 5234712, "homomomo", "homo", "sdasdas",true);
+            //    initLists();//אתחול כל הרשימות
+            // Application.Run(new main_form());
+
+            init_users();
+            Console.WriteLine(Users.Count);
+
         }
     }
 
