@@ -8,7 +8,11 @@ using System.Data;
 
 namespace BiotestCompany
 {
+<<<<<<< HEAD
     public class Customer
+=======
+    class Customer
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
     {
         private int custID;
         private string orgName;
@@ -17,7 +21,11 @@ namespace BiotestCompany
         private string buildingNumber;
         private int roomNumber;
 
+<<<<<<< HEAD
         public Customer(int custID, string orgName, District district, string deliveryAddress, string buildingNumber, int roomNumber, Boolean isNew)
+=======
+        public Customer(int custID, string orgName, District district, string deliveryAddress, string buildingNumber, int roomNumber)
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
         {
             this.custID = custID;
             this.orgName = orgName;
@@ -25,11 +33,14 @@ namespace BiotestCompany
             this.deliveryAddress = deliveryAddress;
             this.buildingNumber = buildingNumber;
             this.roomNumber = roomNumber;
+<<<<<<< HEAD
             if (isNew)
             {
                 this.createCustomer();
                 Program.Customers.Add(this);
             }
+=======
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
         }
 
         // setters & getters:
@@ -70,6 +81,7 @@ namespace BiotestCompany
         {
             return this.roomNumber;
         }
+<<<<<<< HEAD
 
         //int custID, string orgName, District district, string deliveryAddress, string buildingNumber, int roomNumber
         public void createCustomer()
@@ -100,5 +112,7 @@ namespace BiotestCompany
             SC.execute_non_query(c);
         }
 
+=======
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
     }
 }

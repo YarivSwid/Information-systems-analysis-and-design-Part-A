@@ -43,9 +43,16 @@ namespace BiotestCompany
             this.profilePicture = profilePicture;
             if (isNew)
             {
+<<<<<<< HEAD
                 this.createUser();
                 Program.Users.Add(this);
             }
+=======
+                createUser();
+                Program.Users.Add(this);
+            }
+
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
         }
         public User(int userID, string password, DateTime joinDate, string firstName, string lastName, DateTime birthday, int serialID, string email, string role, string profilePicture, Boolean isNew) //CHANGE BACK TO Role type
         { // create from SQL
@@ -61,7 +68,11 @@ namespace BiotestCompany
             this.profilePicture = profilePicture;
             if (isNew)
             {
+<<<<<<< HEAD
                 this.createUser();
+=======
+                createUser();
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
                 Program.Users.Add(this);
             }
 
@@ -72,10 +83,13 @@ namespace BiotestCompany
             // when we create a rand password, we will send it to user
             return "doctorStrange ";
         }
+<<<<<<< HEAD
         public int getID()
         {
             return this.userID;
         }
+=======
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
 
         // setters & getters:
         public void setPassword(string password)
@@ -145,7 +159,10 @@ namespace BiotestCompany
             return true;
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
         public void createUser()
         {
             SqlCommand c = new SqlCommand();
@@ -163,6 +180,7 @@ namespace BiotestCompany
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
+<<<<<<< HEAD
         public void updateUser()
         {
             SqlCommand c = new SqlCommand();
@@ -190,5 +208,7 @@ namespace BiotestCompany
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
+=======
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
     }
 }

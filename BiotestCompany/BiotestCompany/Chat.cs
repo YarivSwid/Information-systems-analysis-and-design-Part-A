@@ -2,6 +2,7 @@
 // Author:  ranalm
 // Created: יום שני 12 מאי 2014 21:00:31
 // Purpose: Definition of Class Order
+<<<<<<< HEAD
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,10 @@ using System.Text;
 using System.Data.SqlClient;//חשוב!
 using System.Windows.Forms;//עבור ההודעות!
 using System.Data;
+=======
+
+using System;
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
 
 namespace BiotestCompany
 {
@@ -18,6 +23,7 @@ namespace BiotestCompany
         private string name;
         private DateTime openingDT;
         private string description;
+<<<<<<< HEAD
         private User creator;
 
         public Chat(string name, string description, User creator, Boolean isNew) //ADD CREATOR TO PARAMETERS!!!
@@ -54,6 +60,20 @@ namespace BiotestCompany
                         + this.openingDT.Day * 100 + this.openingDT.Hour * 10 + this.openingDT.Minute + this.openingDT.Second;
             return result;
         }
+=======
+        //private User creator;
+
+        public Chat(string name, string description) //ADD CREATOR TO PARAMETERS!!!
+        {
+            //assign chatID
+            this.name = name;
+            this.openingDT = DateTime.Now;
+            this.description = description;
+            //this.creator = XXXXX
+
+        }
+
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
         public int getID()
         {
             return this.chatID;
@@ -82,6 +102,7 @@ namespace BiotestCompany
         {
             this.description = newDescription;
         }
+<<<<<<< HEAD
 
         public void createChat()
         {
@@ -116,5 +137,7 @@ namespace BiotestCompany
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
+=======
+>>>>>>> df584c331c2f8e947f1c3b75035685eb0ba9ae5f
     }
 }
