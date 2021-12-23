@@ -43,10 +43,9 @@ namespace BiotestCompany
             this.profilePicture = profilePicture;
             if (isNew)
             {
-                createUser();
+                this.createUser();
                 Program.Users.Add(this);
             }
-
         }
         public User(int userID, string password, DateTime joinDate, string firstName, string lastName, DateTime birthday, int serialID, string email, string role, string profilePicture, Boolean isNew) //CHANGE BACK TO Role type
         { // create from SQL
@@ -62,7 +61,7 @@ namespace BiotestCompany
             this.profilePicture = profilePicture;
             if (isNew)
             {
-                createUser();
+                this.createUser();
                 Program.Users.Add(this);
             }
 
@@ -72,6 +71,10 @@ namespace BiotestCompany
         {
             // when we create a rand password, we will send it to user
             return "doctorStrange ";
+        }
+        public int getID()
+        {
+            return this.userID;
         }
 
         // setters & getters:
@@ -142,6 +145,7 @@ namespace BiotestCompany
             return true;
         }
 
+
         public void createUser()
         {
             SqlCommand c = new SqlCommand();
@@ -156,6 +160,33 @@ namespace BiotestCompany
             c.Parameters.AddWithValue("@email", this.email);
             c.Parameters.AddWithValue("@role", this.role);
             c.Parameters.AddWithValue("@profilePicture", this.profilePicture);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+        public void updateUser()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.UpdateUser @ID, @password, @joinDate ,@firstName, @lastName, @birthday, @serialID ,@email, @role, @profilePicture";
+            c.Parameters.AddWithValue("@id", this.userID);
+            c.Parameters.AddWithValue("@password", this.password);
+            c.Parameters.AddWithValue("@joinDate", this.joinDate);
+            c.Parameters.AddWithValue("@firstName", this.firstName);
+            c.Parameters.AddWithValue("@lastName", this.lastName);
+            c.Parameters.AddWithValue("@birthday", this.birthday);
+            c.Parameters.AddWithValue("@serialID", this.serialID);
+            c.Parameters.AddWithValue("@email", this.email);
+            c.Parameters.AddWithValue("@role", this.role);
+            c.Parameters.AddWithValue("@profilePicture", this.profilePicture);
+
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+        public void deleteUser()
+        {
+            Program.Users.Remove(this);
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.DeleteUser @id";
+            c.Parameters.AddWithValue("@id", this.userID);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
