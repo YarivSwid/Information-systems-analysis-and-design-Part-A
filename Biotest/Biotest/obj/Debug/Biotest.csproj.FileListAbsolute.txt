@@ -1,3 +1,0 @@
-C:\Users\97252\Desktop\Nitoz-Project\Biotest\Biotest\obj\Debug\Biotest.csproj.AssemblyReference.cache
-C:\Users\97252\Desktop\Nitoz-Project\Biotest\Biotest\obj\Debug\Biotest.csproj.SuggestedBindingRedirects.cache
-C:\Users\97252\Desktop\Nitoz-Project\Biotest\Biotest\obj\Debug\Biotest.csproj.CoreCompileInputs.cache
