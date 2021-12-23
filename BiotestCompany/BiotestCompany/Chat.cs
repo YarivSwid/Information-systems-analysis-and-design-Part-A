@@ -87,7 +87,6 @@ namespace BiotestCompany
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.AddChat @chatID,@name,@openingDT,@description,@creator"; // ןגם להוסיף מנג'ר
-            //public Chat(int chatID,string name, DateTime openingDT, string description,User creator,Boolean isNew) //ADD CREATOR TO PARAMETERS!!!
             c.Parameters.AddWithValue("@ID", this.chatID);
             c.Parameters.AddWithValue("@name", this.name);
             c.Parameters.AddWithValue("@openingDT", this.openingDT);
@@ -96,27 +95,26 @@ namespace BiotestCompany
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
-        //public void updateUser()
-        //{
-        //    SqlCommand c = new SqlCommand();
-        //    c.CommandText = "EXECUTE dbo.UpdateChat @ID, @name, @openingDT, @description"; // ןגם להוסיף מנג'ר
-        //    c.Parameters.AddWithValue("@ID", this.chatID);
-        //    c.Parameters.AddWithValue("@name", this.name);
-        //    c.Parameters.AddWithValue("@openingDT", this.openingDT);
-        //    c.Parameters.AddWithValue("@description", this.description);
-        //    c.Parameters.AddWithValue("@manager", this.manager);
-
-        //    SQL_CON SC = new SQL_CON();
-        //    SC.execute_non_query(c);
-        //}
-        //public void deleteUser()
-        //{
-        //    Program.Chats.Remove(this);
-        //    SqlCommand c = new SqlCommand();
-        //    c.CommandText = "EXECUTE dbo.DeleteChat @id";
-        //    c.Parameters.AddWithValue("@id", this.chatID);
-        //    SQL_CON SC = new SQL_CON();
-        //    SC.execute_non_query(c);
-        //}
+        public void updateUser()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.UpdateChat @ID, @name, @openingDT, @description"; // ןגם להוסיף מנג'ר
+            c.Parameters.AddWithValue("@ID", this.chatID);
+            c.Parameters.AddWithValue("@name", this.name);
+            c.Parameters.AddWithValue("@openingDT", this.openingDT);
+            c.Parameters.AddWithValue("@description", this.description);
+            c.Parameters.AddWithValue("@manager", this.creator.getID());
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+        public void deleteUser()
+        {
+            Program.Chats.Remove(this);
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.DeleteChat @id";
+            c.Parameters.AddWithValue("@id", this.chatID);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
     }
 }

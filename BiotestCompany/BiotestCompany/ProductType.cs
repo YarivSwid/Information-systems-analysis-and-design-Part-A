@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BiotestCompany
 {
-    public enum PaymentTerm
+    public class ProductType
     {
-        CurrentPlus30,
-        CurrentPlus60,
-        Instant
+
     }
 }

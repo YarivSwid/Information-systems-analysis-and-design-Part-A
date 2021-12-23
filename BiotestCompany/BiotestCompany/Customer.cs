@@ -8,7 +8,7 @@ using System.Data;
 
 namespace BiotestCompany
 {
-    class Customer
+    public class Customer
     {
         private int custID;
         private string orgName;
@@ -17,7 +17,7 @@ namespace BiotestCompany
         private string buildingNumber;
         private int roomNumber;
 
-        public Customer(int custID, string orgName, District district, string deliveryAddress, string buildingNumber, int roomNumber)
+        public Customer(int custID, string orgName, District district, string deliveryAddress, string buildingNumber, int roomNumber, Boolean isNew)
         {
             this.custID = custID;
             this.orgName = orgName;
@@ -25,6 +25,11 @@ namespace BiotestCompany
             this.deliveryAddress = deliveryAddress;
             this.buildingNumber = buildingNumber;
             this.roomNumber = roomNumber;
+            if (isNew)
+            {
+                this.createCustomer();
+                Program.Customers.Add(this);
+            }
         }
 
         // setters & getters:
@@ -65,5 +70,35 @@ namespace BiotestCompany
         {
             return this.roomNumber;
         }
+
+        //int custID, string orgName, District district, string deliveryAddress, string buildingNumber, int roomNumber
+        public void createCustomer()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.AddCustomer @custID, @orgName, @district ,@deliveryAddress, @buildingNumber, @roomNumber"; // CREATE SP
+            c.Parameters.AddWithValue("@custID", this.custID);
+            c.Parameters.AddWithValue("@orgName", this.orgName);
+            c.Parameters.AddWithValue("@district", this.district);
+            c.Parameters.AddWithValue("@deliveryAddress", this.deliveryAddress);
+            c.Parameters.AddWithValue("@buildingNumber", this.buildingNumber);
+            c.Parameters.AddWithValue("@roomNumber", this.roomNumber);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+        public void updateUser()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.UpdateCustomer @custID, @orgName, @district ,@deliveryAddress, @buildingNumber, @roomNumber"; // CREATE SP
+            c.Parameters.AddWithValue("@custID", this.custID);
+            c.Parameters.AddWithValue("@orgName", this.orgName);
+            c.Parameters.AddWithValue("@district", this.district);
+            c.Parameters.AddWithValue("@deliveryAddress", this.deliveryAddress);
+            c.Parameters.AddWithValue("@buildingNumber", this.buildingNumber);
+            c.Parameters.AddWithValue("@roomNumber", this.roomNumber);
+
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+
     }
 }
